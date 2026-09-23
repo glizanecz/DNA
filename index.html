@@ -19,8 +19,12 @@
     let numOfBlorbs = 0;
     let numOfGeneticVariations = 0;
     let blorbFeatures = ["bigeyed", "medeyed", "smalleyed", "tailed", "notail", "bigeared", "medeared", "smalleared"];
-    let foodPref = ["plant", "landmeat", "fish", "seagrass"];
-    let colorBlorb = ["purple", "blue", "yellow", "green", "red", "orange"]
+    let foodPref = ["plant", "landmeat", "fish", "rivergrass"];
+    let colorBlorb = ["purple", "blue", "yellow", "green", "red", "orange"];
+    let locations = [{ location: "plains", coordOne: [100, 200], coordTwo: [150,200], food: "plant" },
+                    { location: "river", coordOne: [100, 200], coordTwo: [150,200], food: "plant" },
+                    { location: "ocean", coordOne: [100, 200], coordTwo: [150,200], food: "plant" },
+                    { location: "forest", coordOne: [100, 200], coordTwo: [150,200], food: "plant" }];
 
     /* Template for blorb object
     blorb {
@@ -195,12 +199,17 @@
         blorbStorage.push(blorbObjectGeneration);
     }
 
+    async function giveThemLife(){
+        while (true) {
+            await (1000);
+            for (const blorb in blorbStorage) {
+
+            }
+        }
+    }
+
     run(10);
-    let ONEPARENT = blorbStorage[random(0, blorbStorage.length - 1)];
-    let TWOPARENT = blorbStorage[random(0, blorbStorage.length - 1)];
-    makeNewBlorb(ONEPARENT, TWOPARENT);
-    console.log(blorbStorage);
-    fakeConsole.innerText = blorbStorage;
+    giveThemLife();
 
 
     function getGeneticTrait() {
