@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="file.css">
 </head>
 <body>
+    <textarea readonly id="fakeConsole"></textarea>
     <div id="screen">
 
     </div>
 <script>
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const fakeConsole = document.getElementById("fakeConsole");
 
     let blorbStorage = [];
     let numOfBlorbs = 0;
@@ -78,6 +80,8 @@
             reproductionRequirement: reproductionRequirementTemp,
             foodPreference: foodPreference,
             sexualPreferences: sexualPreferences,
+            x: random(0,1920),
+            y: random(0,1080),
         }
 
         blorbStorage.push(blorbObjectGeneration);
@@ -184,6 +188,8 @@
             reproductionRequirement: reproductionRequirementTemp,
             foodPreference: foodPreference,
             sexualPreferences: sexualPreferences,
+            x: parentA.x + 20,
+            y: parentB.y + 20,
         }
 
         blorbStorage.push(blorbObjectGeneration);
@@ -192,8 +198,9 @@
     run(10);
     let ONEPARENT = blorbStorage[random(0, blorbStorage.length - 1)];
     let TWOPARENT = blorbStorage[random(0, blorbStorage.length - 1)];
-    makeNewBlorb(ONEPARENT, TWOPARENT)
-    console.log(blorbStorage)
+    makeNewBlorb(ONEPARENT, TWOPARENT);
+    console.log(blorbStorage);
+    fakeConsole.innerText = blorbStorage;
 
 
     function getGeneticTrait() {
